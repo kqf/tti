@@ -1,0 +1,23 @@
+# Binaries
+*.pyc
+*.so
+*.txt
+*.egg*
+
+# Tools
+.DS_Store
+.python-version
+.vscode
+*-workspace*
+.mypy_cache
+.coverage
+playground/*
+deleteme.*
+
+# Data
+*.csv
+*.json
+*.jpg
+*.png
+.tmp/
+*.pt
