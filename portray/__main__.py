@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def plot(text, canvas):
-    plt.text(2.5, 2, text, fontname="Monospace", fontsize=14)
+    plt.text(.5, .5, text, fontname="Monospace", fontsize=14)
     plt.imshow(canvas)
     plt.show()
 
