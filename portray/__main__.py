@@ -15,6 +15,10 @@ def plot(text, canvas):
         # Plot in axis coordinates (0, 0) -> (1, 1)
         transform=plt.gca().transAxes,
     )
+    plt.gca().spines['left'].set_visible(False)
+    plt.gca().spines['right'].set_visible(False)
+    plt.gca().spines['top'].set_visible(False)
+    plt.gca().spines['bottom'].set_visible(False)
     plt.imshow(canvas)
     plt.show()
 
