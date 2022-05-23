@@ -18,6 +18,7 @@ def plot(text, canvas):
     plt.gca().axis('off')
     plt.imshow(canvas)
     plt.show()
+    plt.savefig(f"{text.replace(' ', '-')}.png")
 
 
 def main():
