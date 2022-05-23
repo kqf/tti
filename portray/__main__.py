@@ -16,7 +16,13 @@ def plot(text, canvas):
         transform=plt.gca().transAxes,
     )
     plt.gca().axis('off')
+    plt.gcf().tight_layout()
     plt.imshow(canvas)
+    plt.savefig(
+        f"{text.replace(' ', '-')}.png",
+        bbox_inches="tight",
+        pad_inches=0
+    )
     plt.show()
 
 
