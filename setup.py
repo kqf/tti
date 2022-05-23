@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "tti=potray.__main__:main",
+            "tti=portray.__main__:main",
         ],
     },
 )
