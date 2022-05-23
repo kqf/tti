@@ -15,6 +15,7 @@ def plot(text, canvas):
         # Plot in axis coordinates (0, 0) -> (1, 1)
         transform=plt.gca().transAxes,
     )
+    plt.gca().axis('off')
     plt.imshow(canvas)
     plt.show()
 
