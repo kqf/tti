@@ -16,8 +16,7 @@ def plot(text, canvas):
         transform=plt.gca().transAxes,
     )
     plt.gca().axis('off')
-    # plt.gcf().tight_layout()
-
+    plt.gcf().tight_layout()
     plt.imshow(canvas)
     plt.savefig(
         f"{text.replace(' ', '-')}.png",
