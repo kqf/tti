@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def plot(text, canvas, ofile):
@@ -26,7 +26,3 @@ def main():
     canvas = np.zeros((1024, 1024, 3), dtype=np.uint8)
     canvas[:, :, :] = 238, 235, 217
     plot("Sample text", canvas, "test.png")
-
-
-if __name__ == "__main__":
-    main()
