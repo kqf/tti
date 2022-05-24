@@ -1,3 +1,4 @@
+import click
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -22,7 +23,9 @@ def plot(text, canvas, ofile):
     plt.show()
 
 
-def main():
+@click.command()
+@click.option("--output", type=click.Path(exists=False), default="test.png")
+def main(output):
     canvas = np.zeros((1024, 1024, 3), dtype=np.uint8)
     canvas[:, :, :] = 238, 235, 217
-    plot("Sample text", canvas, "test.png")
+    plot("Sample text", canvas, output)
