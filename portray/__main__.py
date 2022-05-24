@@ -18,7 +18,7 @@ def plot(text, canvas, ofile):
     plt.gca().axis('off')
     plt.gcf().tight_layout()
     plt.imshow(canvas)
-    plt.savefig( ofile, bbox_inches="tight", pad_inches=0)
+    plt.savefig(ofile, bbox_inches="tight", pad_inches=0)
     plt.show()
 
 
