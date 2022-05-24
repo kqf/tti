@@ -3,3 +3,8 @@ pytest
 pandas
 pytest-coverage
 matplotlib
+
+# development
+flake8
+mypy
+isort
