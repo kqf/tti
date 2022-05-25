@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
-from portray.__main__ import plot
+from click.testing import CliRunner
+from portray.__main__ import main, plot
 
 
 @pytest.fixture
@@ -10,3 +11,14 @@ def canvas():
 
 def test_plots(canvas, tmp_path):
     plot("lol", canvas, tmp_path / "lol.png")
+
+
+@pytest.mark.parametrize("args", [
+    [],
+    ["--output", "dummy.png"]
+])
+def test_main_works(args):
+    runner = CliRunner()
+    result = runner.invoke(main, args)
+    assert result.exit_code == 0
+    assert result.output == ''
