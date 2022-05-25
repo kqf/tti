@@ -23,9 +23,14 @@ def plot(text, canvas, ofile):
     plt.show()
 
 
+def build_canvas():
+    canvas = np.zeros((1024, 1024, 3), dtype=np.uint8)
+    canvas[:, :, :] = 238, 235, 217
+    return canvas
+
+
 @click.command()
 @click.option("--output", type=click.Path(exists=False), default="test.png")
 def main(output):
-    canvas = np.zeros((1024, 1024, 3), dtype=np.uint8)
-    canvas[:, :, :] = 238, 235, 217
+    canvas = build_canvas()
     plot("Sample text", canvas, output)
