@@ -17,8 +17,11 @@ def test_plots(canvas, tmp_path):
     [],
     ["--output", "dummy.png"]
 ])
-def test_main_works(args):
+def test_main_works(args, tmp_path):
     runner = CliRunner()
-    result = runner.invoke(main, args)
+    with runner.isolated_filesystem(temp_dir=tmp_path) as fs:
+        with open(f'{fs}/data.csv', 'w') as f:
+            f.write('Jack the dull boy\nLorem Ipsum\n')
+        result = runner.invoke(main, args)
     assert result.exit_code == 0
     assert result.output == ''

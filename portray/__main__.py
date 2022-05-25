@@ -1,6 +1,7 @@
 import click
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 
 def plot(text, canvas, ofile):
@@ -23,9 +24,18 @@ def plot(text, canvas, ofile):
     plt.show()
 
 
-@click.command()
-@click.option("--output", type=click.Path(exists=False), default="test.png")
-def main(output):
+def build_canvas():
     canvas = np.zeros((1024, 1024, 3), dtype=np.uint8)
     canvas[:, :, :] = 238, 235, 217
-    plot("Sample text", canvas, output)
+    return canvas
+
+
+@click.command()
+@click.option("--data", type=click.Path(exists=True), default="data.csv")
+@click.option("--output", type=click.Path(exists=False), default="test.png")
+def main(data, output):
+    df = pd.read_csv(data, names=["entity"])
+    canvas = build_canvas()
+    for entry in df.to_dict(orient="records"):
+        text = entry["entity"]
+        plot(text, canvas, output)
