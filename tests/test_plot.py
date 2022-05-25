@@ -13,8 +13,12 @@ def test_plots(canvas, tmp_path):
     plot("lol", canvas, tmp_path / "lol.png")
 
 
-def test_main_works():
+@pytest.mark.parametrize("args", [
+    [],
+    ["--output", "dummy.png"]
+])
+def test_main_works(args):
     runner = CliRunner()
-    result = runner.invoke(main)
+    result = runner.invoke(main, args)
     assert result.exit_code == 0
     assert result.output == ''
