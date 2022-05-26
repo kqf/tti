@@ -32,7 +32,7 @@ def build_canvas():
 
 @click.command()
 @click.option("--data", type=click.Path(exists=True), default="data.csv")
-@click.option("--output", type=click.Path(exists=False), default="test.png")
+@click.option("--output", type=click.Path(exists=False), default="images/")
 def main(data, output):
     df = pd.read_csv(data, names=["entity"])
     canvas = build_canvas()
