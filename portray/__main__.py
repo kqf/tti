@@ -32,10 +32,10 @@ def build_canvas():
 
 @click.command()
 @click.option("--data", type=click.Path(exists=True), default="data.csv")
-@click.option("--output", type=click.Path(exists=False), default="images/")
+@click.option("--output", type=click.Path(exists=False), default="images")
 def main(data, output):
     df = pd.read_csv(data, names=["entity"])
     canvas = build_canvas()
-    for entry in df.to_dict(orient="records"):
+    for i, entry in enumerate(df.to_dict(orient="records")):
         text = entry["entity"]
-        plot(text, canvas, output)
+        plot(text, canvas, f"{output}/{i}.png")
