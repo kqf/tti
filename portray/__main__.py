@@ -15,7 +15,7 @@ def plot(text, canvas, ofile):
         fontsize=14,
         ha="center",
         va="center",
-        # alpha=0.5,
+        alpha=0.5,
         # Plot in axis coordinates (0, 0) -> (1, 1)
         transform=plt.gca().transAxes,
     )
