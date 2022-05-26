@@ -1,3 +1,5 @@
+import pathlib
+
 import click
 import matplotlib.pyplot as plt
 import numpy as np
@@ -36,6 +38,7 @@ def build_canvas():
 def main(data, output):
     df = pd.read_csv(data, names=["entity"])
     canvas = build_canvas()
+    outdir = pathlib.Path(output)
     for i, entry in enumerate(df.to_dict(orient="records")):
         text = entry["entity"]
-        plot(text, canvas, f"{output}/{i}.png")
+        plot(text, canvas, outdir / f"{i}.png")
