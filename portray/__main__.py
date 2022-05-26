@@ -11,6 +11,7 @@ def plot(text, canvas, ofile):
         .5,
         .5,
         text,
+        fontname="menlo",
         family="monospace",
         fontsize=14,
         ha="center",
