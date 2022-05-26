@@ -11,11 +11,11 @@ def plot(text, canvas, ofile):
         .5,
         .5,
         text,
-        fontname="monospace",
+        family="monospace",
         fontsize=14,
         ha="center",
         va="center",
-        alpha=0.5,
+        alpha=0.6,
         # Plot in axis coordinates (0, 0) -> (1, 1)
         transform=plt.gca().transAxes,
     )
