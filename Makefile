@@ -16,9 +16,13 @@ en.csv:
 	cat _male_us.csv _female_us.csv > $@
 	rm _*us.csv
 
-
 pl.csv: size = 100
 pl.csv: source = https://raw.githubusercontent.com/denmats/imiona_polskie/master/imiona_polskie.txt
 pl.csv:
 	@# Download thed data, remove empty lines, random shuffle
 	curl $(source) | awk NF | sort --random-sort  | head -n $(size) > $@
+
+de.csv: source = https://raw.githubusercontent.com/oliverpitsch/craft-data-german/master/craft-data-german-first_names
+	curl $(source)-male.txt > _male_de.csv
+	curl $(source)-female.txt > _female_de.csv
+	cat _male_de.csv _female_de.csv | sort --random-sort > $@
