@@ -1,5 +1,5 @@
 
-data.csv: en.csv pl.csv de.csv
+data.csv: en.csv pl.csv de.csv es.csv
 	cat $^ > $@
 
 en.csv: size = 100
@@ -30,11 +30,11 @@ de.csv:
 	rm _*de.csv
 
 es.csv: size = 100
-es.csv: source = https://github.com/jvalhondo/spanish-names-surnames/blob/master
+es.csv: source = https://raw.githubusercontent.com/jvalhondo/spanish-names-surnames/master
 es.csv:
 	@# Download thed data, and skip the first row
-	curl $(source)/male_names.csv | tail -n +2 | _male_es.csv
-	curl $(source)/female_names.csv | tail -n +2 | _female_es.csv
+	curl $(source)/male_names.csv | tail -n +2 > _male_es.csv
+	curl $(source)/female_names.csv | tail -n +2 > _female_es.csv
 
 	@# Select male and female columns
 	cat _male_es.csv | head -n $(size) | cut -d ',' -f1 > _male_es.csv
