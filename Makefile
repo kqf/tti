@@ -27,3 +27,4 @@ de.csv:
 	curl $(source)-male.txt > _male_de.csv
 	curl $(source)-female.txt > _female_de.csv
 	cat _male_de.csv _female_de.csv | sort --random-sort > $@
+	rm _*de.csv
