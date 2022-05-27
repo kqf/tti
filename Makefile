@@ -1,5 +1,5 @@
 
-data.csv: en.csv pl.csv
+data.csv: en.csv pl.csv de.csv
 	cat $^ > $@
 
 en.csv: size = 100
@@ -23,6 +23,7 @@ pl.csv:
 	curl $(source) | awk NF | sort --random-sort  | head -n $(size) > $@
 
 de.csv: source = https://raw.githubusercontent.com/oliverpitsch/craft-data-german/master/craft-data-german-first_names
+de.csv:
 	curl $(source)-male.txt > _male_de.csv
 	curl $(source)-female.txt > _female_de.csv
 	cat _male_de.csv _female_de.csv | sort --random-sort > $@
