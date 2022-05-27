@@ -1,4 +1,4 @@
-pllink=https://github.com/denmats/imiona_polskie/blob/master/imiona_polskie.csv
+pllink=https://raw.githubusercontent.com/denmats/imiona_polskie/blob/master/imiona_polskie.csv
 
 
 data.csv: en.csv
@@ -16,3 +16,4 @@ en.csv:
 
 	@# Merge the results
 	cat _male_us.csv _female_us.csv > $@
+	rm _*us.csv
