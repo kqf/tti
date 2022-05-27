@@ -1,8 +1,6 @@
-pllink=https://github.com/denmats/imiona_polskie/blob/master/imiona_polskie.csv
 
-
-data.csv: en.csv
-	cat $< > $@
+data.csv: en.csv pl.csv
+	cat $^ > $@
 
 en.csv: size = 100
 en.csv: source = https://raw.githubusercontent.com/aruljohn/popular-baby-names/master/2000/girl_boy_names_2000.csv
@@ -16,3 +14,11 @@ en.csv:
 
 	@# Merge the results
 	cat _male_us.csv _female_us.csv > $@
+	rm _*us.csv
+
+
+pl.csv: size = 100
+pl.csv: source = https://raw.githubusercontent.com/denmats/imiona_polskie/master/imiona_polskie.txt
+pl.csv:
+	@# Download thed data, remove empty lines, random shuffle
+	curl $(source) | awk NF | sort --random-sort  | head -n $(size) > $@
