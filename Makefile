@@ -1,5 +1,5 @@
 
-data.csv: en.csv pl.csv de.csv es.csv
+data.csv: en.csv pl.csv de.csv es.csv fr.csv
 	cat $^ > $@
 
 en.csv: size = 100
