@@ -1,6 +1,6 @@
 
 data.csv: en.csv pl.csv de.csv es.csv fr.csv
-	cat $^ > $@
+	cat $^ | tr '[:upper:]' '[:lower:]' > $@
 
 en.csv: size = 100
 en.csv: source = https://raw.githubusercontent.com/aruljohn/popular-baby-names/master/2000/girl_boy_names_2000.csv
