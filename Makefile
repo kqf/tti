@@ -43,3 +43,9 @@ es.csv:
 	@# Merge and cleanup
 	cat _male_es.csv _female_es.csv > $@
 	rm _*es.csv
+
+
+fr.csv: size = 100
+fr.csv: source = curl https://raw.githubusercontent.com/dkoslicki/pytst2/master/test/prenoms.txt
+fr.csv:
+	curl $(source) | cut -d ';' -f1 | sort --random-sort | head -n 100 > $@
