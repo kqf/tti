@@ -1,5 +1,5 @@
 
-data.csv: en.csv pl.csv de.csv es.csv
+data.csv: en.csv pl.csv de.csv es.csv fr.csv
 	cat $^ > $@
 
 en.csv: size = 100
@@ -43,3 +43,9 @@ es.csv:
 	@# Merge and cleanup
 	cat _male_es.csv _female_es.csv > $@
 	rm _*es.csv
+
+fr.csv: size = 100
+fr.csv: source = curl https://raw.githubusercontent.com/dkoslicki/pytst2/master/test/prenoms.txt
+fr.csv:
+	curl $(source) | iconv -f ISO-8859-1 -t UTF8  > _utf8_fr.csv
+	cat _utf8_fr.csv | cut -d ';' -f1 | sort --random-sort | head -n 100 > $@
