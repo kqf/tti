@@ -1,6 +1,7 @@
 
 data.csv: en.csv pl.csv de.csv es.csv fr.csv
-	cat $^ | tr '[:upper:]' '[:lower:]' | sort | uniq > $@
+	@# Concatenate dependencies, convert to lower, deduplicate, random shuffle
+	cat $^ | tr '[:upper:]' '[:lower:]' | sort | uniq | sort --random-sort > $@
 
 en.csv: size = 100
 en.csv: source = https://raw.githubusercontent.com/aruljohn/popular-baby-names/master/2000/girl_boy_names_2000.csv
