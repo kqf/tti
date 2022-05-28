@@ -44,8 +44,8 @@ es.csv:
 	cat _male_es.csv _female_es.csv > $@
 	rm _*es.csv
 
-
 fr.csv: size = 100
 fr.csv: source = curl https://raw.githubusercontent.com/dkoslicki/pytst2/master/test/prenoms.txt
 fr.csv:
-	curl $(source) | cut -d ';' -f1 | sort --random-sort | head -n 100 > $@
+	curl $(source) | iconv -f ISO-8859-1 -t UTF8  > _utf8_fr.csv
+	cat _utf8_fr.csv | cut -d ';' -f1 | sort --random-sort | head -n 100 > $@
