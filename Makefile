@@ -50,3 +50,8 @@ fr.csv: source = curl https://raw.githubusercontent.com/dkoslicki/pytst2/master/
 fr.csv:
 	curl $(source) | iconv -f ISO-8859-1 -t UTF8  > _utf8_fr.csv
 	cat _utf8_fr.csv | cut -d ';' -f1 | sort --random-sort | head -n 100 > $@
+
+clean:
+	rm -f data.csv
+
+.PHONY: clean
