@@ -3,6 +3,7 @@ pytest
 pandas
 pytest-coverage
 matplotlib
+scipy
 
 # development
 flake8
