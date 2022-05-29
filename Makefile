@@ -1,6 +1,7 @@
 
 data.csv: en.csv pl.csv de.csv es.csv fr.csv
-	cat $^ > $@
+	@# Concatenate dependencies, convert to lower, deduplicate, random shuffle
+	cat $^ | tr '[:upper:]' '[:lower:]' | sort | uniq | sort --random-sort > $@
 
 en.csv: size = 100
 en.csv: source = https://raw.githubusercontent.com/aruljohn/popular-baby-names/master/2000/girl_boy_names_2000.csv
@@ -49,3 +50,8 @@ fr.csv: source = curl https://raw.githubusercontent.com/dkoslicki/pytst2/master/
 fr.csv:
 	curl $(source) | iconv -f ISO-8859-1 -t UTF8  > _utf8_fr.csv
 	cat _utf8_fr.csv | cut -d ';' -f1 | sort --random-sort | head -n 100 > $@
+
+clean:
+	rm -f data.csv
+
+.PHONY: clean
