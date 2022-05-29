@@ -13,7 +13,7 @@ def plot(text, canvas, ofile):
     plt.text(
         .5,
         .5,
-        text,
+        text.lower(),
         fontname="menlo",
         family="monospace",
         fontsize=18,
