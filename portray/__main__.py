@@ -1,9 +1,12 @@
 import pathlib
+from turtle import back
 
 import click
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
+from portray.background import background
 
 
 def plot(text, canvas, ofile):
@@ -23,6 +26,7 @@ def plot(text, canvas, ofile):
     plt.gca().axis('off')
     plt.gcf().tight_layout()
     plt.imshow(canvas)
+    background(canvas)
     plt.savefig(ofile, bbox_inches="tight", pad_inches=0)
     plt.show()
 
