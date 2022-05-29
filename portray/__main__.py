@@ -1,5 +1,4 @@
 import pathlib
-from turtle import back
 
 import click
 import matplotlib.pyplot as plt
