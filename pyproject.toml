@@ -19,7 +19,9 @@ dependencies = [
 dev = [
     "pytest",
     "pytest-coverage",
-
+    "flake8",
+    "mypy",
+    "isort",
 ]
 
 [project.scripts]
