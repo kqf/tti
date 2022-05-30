@@ -8,11 +8,20 @@ version = "0.0.1"
 description = "Converts text to image"
 dependencies = [
     "numpy",
+    "click",
+    "pytest",
+    "pandas",
+    "matplotlib",
+    "scipy",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest",
+    "pytest-coverage",
+    "flake8",
+    "mypy",
+    "isort",
 ]
 
 [project.scripts]
