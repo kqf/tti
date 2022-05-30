@@ -1,12 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
-setup(
-    name="portray",
-    version="0.0.1",
-    packages=find_packages(),
-    entry_points={
-        "console_scripts": [
-            "tti=portray.__main__:main",
-        ],
-    },
-)
+# This is needed only for editable installs
+setup()

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portray"
+version = "0.0.1"
+description = "Converts text to image"
+dependencies = [
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.scripts]
+tti = "portray.__main__:main"
+
+[tool.setuptools.packages]
+find = {}
