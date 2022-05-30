@@ -13,6 +13,7 @@
 .coverage
 playground/*
 deleteme.*
+build/
 
 # Data
 *.csv
