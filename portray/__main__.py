@@ -4,6 +4,7 @@ import click
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import tqdm
 
 from portray.background import background
 
@@ -44,6 +45,6 @@ def main(data, output):
     canvas = build_canvas()
     outdir = pathlib.Path(output)
     outdir.mkdir(parents=True, exist_ok=True)
-    for i, entry in enumerate(df.to_dict(orient="records")):
+    for i, entry in enumerate(tqdm.tqdm(df.to_dict(orient="records"))):
         text = entry["entity"]
         plot(text, canvas, outdir / f"{i}.png")
