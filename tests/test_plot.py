@@ -24,4 +24,3 @@ def test_main_works(args, tmp_path):
             f.write('Jack the dull boy\nLorem Ipsum\n')
         result = runner.invoke(main, args)
     assert result.exit_code == 0
-    assert result.output == ''
