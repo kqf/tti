@@ -9,7 +9,7 @@ import tqdm
 from portray.background import background
 
 
-def plot(text, canvas, ofile):
+def plot(text, canvas, ofile, preview=False):
     plt.text(
         .5,
         .5,
@@ -28,7 +28,8 @@ def plot(text, canvas, ofile):
     plt.imshow(canvas)
     background(canvas)
     plt.savefig(ofile, bbox_inches="tight", pad_inches=0)
-    # plt.show()
+    if preview:
+        plt.show()
 
 
 def build_canvas():
