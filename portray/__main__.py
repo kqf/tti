@@ -30,6 +30,7 @@ def plot(text, canvas, ofile, preview=False):
     plt.savefig(ofile, bbox_inches="tight", pad_inches=0)
     if preview:
         plt.show()
+    plt.cla()
 
 
 def build_canvas():
